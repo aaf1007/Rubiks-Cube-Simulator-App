@@ -11,7 +11,7 @@ public class VisualCubie extends Group {
     private static final double SIZE = 50;
     private static final double GAP = 2;
     private static final double STICKER_SIZE = SIZE - GAP;
-    private static final double OFFSET = STICKER_SIZE / 2 + 0.1;
+    private static final double OFFSET = STICKER_SIZE / 2 + 1;
     
     // Color indices: 0=Up, 1=Right, 2=Front, 3=Down, 4=Left, 5=Back
     private final Color[] faceColors = new Color[6];
@@ -42,8 +42,14 @@ public class VisualCubie extends Group {
     
     private void updateFaces() {
         // Remove old stickers
-        this.getChildren().removeIf(node -> node instanceof Rectangle);
+        // this.getChildren().removeIf(node -> node instanceof Rectangle);
         
+        // Bug Fix Attempt
+        // Keep only first child (the black core box)
+        while (this.getChildren().size() > 1) {
+            this.getChildren().remove(1);
+        }
+
         // Add colored stickers for each face
         addSticker(faceColors[0], 0, -OFFSET, 0, Rotate.X_AXIS, 90);  // Up
         addSticker(faceColors[1], OFFSET, 0, 0, Rotate.Y_AXIS, 90);   // Right
@@ -60,12 +66,27 @@ public class VisualCubie extends Group {
         Rectangle sticker = new Rectangle(STICKER_SIZE - 4, STICKER_SIZE - 4);
         sticker.setFill(color);
         
-        sticker.setTranslateX(x);
-        sticker.setTranslateY(y);
-        sticker.setTranslateZ(z);
+        // sticker.setTranslateX(x); // How far stickers are from Black Cube
+        // sticker.setTranslateY(y);
+        // sticker.setTranslateZ(z);
         
-        sticker.getTransforms().add(new Rotate(angle, axis));
+        // sticker.getTransforms().add(new Rotate(angle, axis));
         
-        this.getChildren().add(sticker);
+        // this.getChildren().add(sticker);
+
+        // Bug Fix Attempt
+        // Center the rectangle at origin first
+        // Shifts rectangle so its center is at (0,0)
+        sticker.setTranslateX(-sticker.getWidth() / 2);
+        sticker.setTranslateY(-sticker.getHeight() / 2);
+        
+        // Wrap in a Group to apply 3D transforms
+        Group stickerGroup = new Group(sticker);
+        stickerGroup.setTranslateX(x);
+        stickerGroup.setTranslateY(y);
+        stickerGroup.setTranslateZ(z);
+        stickerGroup.getTransforms().add(new Rotate(angle, axis));
+        
+        this.getChildren().add(stickerGroup);
     }
 }
