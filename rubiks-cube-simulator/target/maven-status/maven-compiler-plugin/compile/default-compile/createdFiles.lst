@@ -1,4 +1,5 @@
+module-info.class
 com/aaf1007/RubiksCubeApp.class
 com/aaf1007/RubiksCubeVisual.class
-module-info.class
 com/aaf1007/VisualCubie.class
+com/aaf1007/RubiksCubeApp$1.class
