@@ -21,12 +21,15 @@ public class IntegrationTest extends Application {
         cubeVisual = new RubiksCubeVisual(solverCubie);
         
         Group root = new Group(cubeVisual);
-        Scene scene = new Scene(root, 800, 600, true);
+        Scene scene = new Scene(root, 900, 700, true);
         scene.setFill(Color.LIGHTGRAY);
         
         // Camera and lighting
         PerspectiveCamera camera = new PerspectiveCamera(true);
         camera.setTranslateZ(-600);
+        camera.setNearClip(0.1);
+        camera.setFarClip(3000);
+        camera.setFieldOfView(45);
         scene.setCamera(camera);
         
         AmbientLight ambient = new AmbientLight(Color.gray(0.4));
@@ -64,9 +67,9 @@ public class IntegrationTest extends Application {
     
     private double anchorX, anchorY;
     private double anchorAngleX = 0;
-    private double anchorAngleY = 0;
+    private double anchorAngleY = 180;
     private final Rotate rotateX = new Rotate(0, Rotate.X_AXIS);
-    private final Rotate rotateY = new Rotate(0, Rotate.Y_AXIS);
+    private final Rotate rotateY = new Rotate(180, Rotate.Y_AXIS);
     
     private void initMouseControl(Group group, Scene scene) {
         group.getTransforms().addAll(rotateX, rotateY);

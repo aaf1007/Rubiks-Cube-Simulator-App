@@ -32,7 +32,7 @@ public class RubiksCubeVisual extends Group {
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
                 for (int z = 0; z < 3; z++) {
-                    VisualCubie cubie = new VisualCubie(x - 1, y - 1, z - 1);
+                    VisualCubie cubie = new VisualCubie(1 - x, y - 1, z - 1);
                     visualCubies[x][y][z] = cubie;
                     this.getChildren().add(cubie);
                 }
@@ -101,7 +101,7 @@ public class RubiksCubeVisual extends Group {
             // Apply orientation
             for (int i = 0; i < 3; i++) {
                 int faceIndex = cornerFaces[pos][i];
-                int colorIndex = pieceFaces[(i + orient) % 3];
+                int colorIndex = pieceFaces[(i + 3 - orient) % 3];
                 Color color = FACE_COLORS[colorIndex];
                 visualCubies[x][y][z].setFaceColor(faceIndex, color);
             }

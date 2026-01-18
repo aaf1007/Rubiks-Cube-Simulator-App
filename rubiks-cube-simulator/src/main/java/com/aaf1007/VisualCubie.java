@@ -52,10 +52,10 @@ public class VisualCubie extends Group {
 
         // Add colored stickers for each face
         addSticker(faceColors[0], 0, -OFFSET, 0, Rotate.X_AXIS, 90);  // Up
-        addSticker(faceColors[1], OFFSET, 0, 0, Rotate.Y_AXIS, 90);   // Right
+        addSticker(faceColors[1], -OFFSET, 0, 0, Rotate.Y_AXIS, 90);   // Right
         addSticker(faceColors[2], 0, 0, OFFSET, Rotate.X_AXIS, 0);    // Front
         addSticker(faceColors[3], 0, OFFSET, 0, Rotate.X_AXIS, -90);  // Down
-        addSticker(faceColors[4], -OFFSET, 0, 0, Rotate.Y_AXIS, -90); // Left
+        addSticker(faceColors[4], OFFSET, 0, 0, Rotate.Y_AXIS, -90); // Left
         addSticker(faceColors[5], 0, 0, -OFFSET, Rotate.X_AXIS, 180); // Back
     }
     
