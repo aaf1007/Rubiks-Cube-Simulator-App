@@ -1,5 +1,11 @@
+com/aaf1007/rubikscube/Tables.class
+com/aaf1007/rubikscube/RubiksCube.class
+com/aaf1007/IntegrationTest.class
+com/aaf1007/rubikscube/Solver.class
+com/aaf1007/IntegrationTest$1.class
 module-info.class
+com/aaf1007/rubikscube/Cubie.class
 com/aaf1007/RubiksCubeApp.class
 com/aaf1007/RubiksCubeVisual.class
 com/aaf1007/VisualCubie.class
-com/aaf1007/RubiksCubeApp$1.class
+com/aaf1007/rubikscube/TwoPhase.class

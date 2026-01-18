@@ -41,7 +41,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.aaf1007.RubiksCubeApp</mainClass>
+                            <mainClass>com.aaf1007.IntegrationTest</mainClass>
                         </configuration>
                     </execution>
                 </executions>
